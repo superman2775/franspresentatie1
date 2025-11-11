@@ -11,10 +11,9 @@
             color: #2a2346;
             overflow-x: hidden;
             position: relative;
-            /* Nieuwe donkere animatie-gradient */
-            background: linear-gradient(120deg, #08080c 5%, #0d38a7 40%, #6624a8 70%, #08080c 100%);
-            background-size: 280% 280%;
-            animation: gradientmove 13s ease-in-out infinite;
+            background: linear-gradient(120deg, #101e4b 0%, #366fe3 40%, #6f38c5 100%);
+            background-size: 220% 220%;
+            animation: gradientmove 11s ease-in-out infinite;
         }
         @keyframes gradientmove {
             0%   { background-position: 0% 60%;}
@@ -35,8 +34,8 @@
             background: rgba(255,255,255,0.97);
             border-radius: 32px;
             box-shadow: 0 8px 38px 6px #583a9969, 0 1px 8px #fff;
-            padding: 70px 60px 65px 60px;
-            min-height: 390px;
+            padding: 68px 60px 60px 60px;
+            min-height: 260px;
             position: relative;
             animation: fadein 1s cubic-bezier(.39,.575,.56,1.000);
             z-index: 3;
@@ -46,94 +45,181 @@
             to   { opacity: 1; transform: scale(1) translateY(0);}
         }
         .slide.active { display: block; }
+        /* TITELSLIDE SPECIAAL */
+        .title-ring-container {
+            position: relative;
+            width: 100%;
+            min-height: 350px;
+            height: 390px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .title-main {
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%,-60%);
+            font-size: 2.8em;
+            color: #552b9b;
+            text-shadow: 0 6px 32px #b7a7eb38, 0 1px 2px #fff;
+            font-weight: bold;
+            text-align: center;
+            z-index: 2;
+            letter-spacing: .05em;
+            max-width: 90vw;
+        }
+        .subtitle {
+            font-size: 1.1em;
+            margin-top: 28px;
+            color: #564992;
+            text-shadow: 0 1px 2px #fff;
+            font-weight: 500;
+            letter-spacing: .04em;
+        }
+        .ring-keywords {
+            position: absolute;
+            left: 50%; top: 49%;
+            transform: translate(-50%,-50%);
+            width: 340px; height: 360px;
+            pointer-events:none;
+        }
+        .key-badge {
+            position: absolute;
+            pointer-events:auto;
+            padding: 8px 22px 8px 14px;
+            border-radius: 19px;
+            background: #f5f3fd;
+            color: #3d2e6c;
+            box-shadow: 0 2px 13px #c3b8e576;
+            font-size: 1em;
+            font-weight:bold;
+            min-width:98px;
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            white-space:nowrap;
+            animation: ringin .92s;
+            opacity:0.94;
+        }
+        .ring-keywords .ring1 { left: 53%;  top: 2%;  transform:translate(-51%,-48%);}
+        .ring-keywords .ring2 { left: 89%;  top: 17%; transform:translate(-44%,-38%);}
+        .ring-keywords .ring3 { left: 89%;  top: 61%; transform:translate(-44%,35%);}
+        .ring-keywords .ring4 { left: 55%;  top: 90%; transform:translate(-58%,45%);}
+        .ring-keywords .ring5 { left: 14%;  top: 66%; transform:translate(-48%,28%);}
+        .ring-keywords .ring6 { left: 12%;  top: 14%; transform:translate(-48%,19%);}
+        @keyframes ringin {
+            from { opacity:0; transform:scale(.8);}
+            65% { opacity:0.7; transform:scale(1.15);}
+            to { opacity:0.94; transform:scale(1);}
+        }
+        /* --- REST --- */
         h1, h2 {
             color: #52239b;
-            margin-top: 8px;
-            font-size: 2.25em;
+            font-size: 2.1em;
             font-weight: bold;
-            text-shadow: 2px 7px 28px #342867, 0 1px 2px #fff;
+            text-shadow: 2px 7px 27px #342867, 0 1px 2px #fff;
             letter-spacing: 0.03em;
             animation: growhead 1.1s;
+            margin-bottom: 32px;
+        }
+        .slide#slide-8 h1 {
+            font-size: 3em;
+            color: #532a84;
+            text-align:center;
+            margin-top: 80px;
+            margin-bottom: 100px;
+            text-shadow: 0 10px 40px #b7a7eb70, 0 1px 2px #fff;
+            letter-spacing:.06em;
+            animation: growhead .9s;
         }
         @keyframes growhead {
             from { opacity:0; transform: scale(.65);}
             70% { opacity:1; transform: scale(1.08);}
             to { opacity:1; transform: scale(1);}
         }
-        .slide p, .illu, .activity-grid, .slide .extra {
-            font-size: 1.16em;
+        .keywords {
+            font-size: 1.21em;
+            font-weight: bold;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px 34px;
+            justify-content: center;
+            align-items: flex-start;
+            letter-spacing: 0.012em;
+            margin-top:25px;
+            margin-bottom:20px;
+        }
+        .key-box {
+            padding: 10px 26px 10px 17px;
+            border-radius: 18px;
+            background: #f2f0fa;
+            color: #3d2d6c;
+            box-shadow: 0 2px 9px #c3b8e5a4;
+            font-size: 1.06em;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+            gap: 10px;
+            min-height: 46px;
+            white-space: nowrap;
             animation: fadebounce 1s;
+            line-height: 1.26;
         }
-        @keyframes fadebounce {
-            from { opacity:.12; transform: translateY(45px) scale(.95);}
-            60% { opacity:.85; transform: translateY(-4px) scale(1.04);}
-            to { opacity:1; transform: translateY(0) scale(1);}
-        }
-        .big-illu{
-            display:block;
-            max-width:70px;
-            margin:18px auto 18px auto;
-            filter:drop-shadow(0 14px 30px #bc8bfa33);
+        .emoji-inbox {
+            display: inline-block;
+            width: 1.15em;
+            height: 1.15em;
+            vertical-align: middle;
+            margin-right: 11px;
+            margin-left: -2px;
         }
         .activity-grid {
             display: flex;
-            gap: 14px;
+            gap: 28px;
             flex-wrap: wrap;
             justify-content: center;
-            margin: 18px auto 0 auto;
-            max-width: 440px;
+            margin:28px auto 0 auto;
+            max-width: 600px;
         }
         .activity-grid figure {
-            flex: 1 1 80px;
+            flex: 1 1 120px;
             text-align: center;
-            transition:.2s;
+            transition:.21s;
         }
         .activity-grid figure:hover {
-            transform: scale(1.10) rotate(-4deg);
+            transform: scale(1.09) rotate(-4deg);
             box-shadow:0 8px 22px #583a9969;
             background:#e0daf8;
-            border-radius:18px;
-        }
-        .activity-grid img, .illu {
-            width: 30px;
-            height: 30px;
-            object-fit: contain;
-            border-radius: 50%;
-            background: #e9e5f9;
-            box-shadow: 0 4px 14px #5e35d692, 0 1px 2px #fff;
-            margin-bottom: 6px;
-            transition:.18s cubic-bezier(.26,1.5,.54,.97);
+            border-radius:14px;
         }
         .slide#slide-4 .activity-grid img {
-            width: 62px;
-            height: 62px;
+            width: 65px; height:65px; margin:0 auto 0 auto;
+        }
+        .activity-grid img {
+            width: 30px; height:30px; border-radius:44px; background:#e9e5f9; box-shadow:0 4px 14px #5e35d692;
+            margin:0 auto 2px auto;
         }
         .activity-grid figcaption {
-            font-size:0.97em;
+            font-size:1.15em;
             color: #392c63;
             margin-top:7px;
-        }
-        .extra {
-            color:#43287e;
-            margin:10px auto 10px auto;
-            font-size:1.08em;
-            padding:1px 14px;
-            max-width:90%;
-            text-align:center;
+            font-weight:bold;
+            letter-spacing:.03em;
         }
         .nav-buttons { display: flex; justify-content: space-between; max-width:800px; margin: 26px auto 0 auto;}
         button {
             background: #52239b;
             color: #fff;
             border: none;
-            border-radius: 28px;
-            font-size: 1.18em;
+            border-radius: 32px;
+            font-size: 1.22em;
             font-weight: bold;
             padding: 14px 46px;
             box-shadow: 0 2px 12px #3a267c67;
             cursor: pointer;
-            letter-spacing: 0.04em;
-            transition: background .22s, box-shadow .18s, transform .11s;
+            letter-spacing: 0.05em;
+            transition: background .24s, box-shadow .18s, transform .13s;
         }
         button:disabled { background: #9683c9; color: #eeebf6; cursor: default; }
         button:active { transform: scale(0.97);}
@@ -147,14 +233,13 @@
             opacity: .65;
             z-index:1;
         }
-        /* ==== Floating EMOJIS ==== */
         .emoji-float {
             position: absolute;
             z-index: 1;
-            opacity: 0.68;
+            opacity: 0.72;
             pointer-events: none;
             width: 54px; height: 54px;
-            animation: floaty 6.4s infinite alternate cubic-bezier(.41,.77,.2,1.13);
+            animation: floaty 6.2s infinite alternate cubic-bezier(.41,.77,.2,1.13);
             filter: drop-shadow(2px 1px 3px #392c6352);
         }
         @keyframes floaty {
@@ -162,127 +247,111 @@
             60%  { transform: translateY(-12px) rotate(19deg);}
             100% { transform: translateY(0) rotate(-14deg);}
         }
-        /* VERSpreid rond het kader, 6 per slide verschillende posities */
+        /* Emoji positions per slide */
         .slide1-emoji1 { left: 2vw; top: 1vh; animation-delay: 0s;}
         .slide1-emoji2 { right: 3vw; top: 2vh; animation-delay: 0.8s;}
         .slide1-emoji3 { left: 4vw; bottom: 2vh; animation-delay: 1.6s;}
         .slide1-emoji4 { right: 4vw; bottom: 2vh; animation-delay: 1.3s;}
         .slide1-emoji5 { left:8vw; top: 90vh; animation-delay:0.6s;}
         .slide1-emoji6 { right:7vw; top: 88vh; animation-delay:1.2s;}
-
         .slide2-emoji1 { left: 1vw; top:15vh; animation-delay:0s;}
         .slide2-emoji2 { right:1vw; top:20vh; animation-delay:.6s;}
         .slide2-emoji3 { left:10vw; bottom:10vh; animation-delay:1.6s;}
         .slide2-emoji4 { right:4vw; bottom:12vh; animation-delay:0.7s;}
         .slide2-emoji5 { left:12vw; top:84vh; animation-delay:.2s;}
         .slide2-emoji6 { right:9vw; bottom:87vh; animation-delay:0.9s;}
-
         .slide3-emoji1 { left:3vw; top:33vh; animation-delay:0.2s;}
         .slide3-emoji2 { right:10vw; top:22vh; animation-delay:.8s;}
         .slide3-emoji3 { left:14vw; bottom:8vh; animation-delay:1.8s;}
         .slide3-emoji4 { right:6vw; bottom:9vh; animation-delay:1.1s;}
         .slide3-emoji5 { left:20vw; top:80vh; animation-delay:.7s;}
         .slide3-emoji6 { right:12vw; top:83vh; animation-delay:1.4s;}
-
         .slide4-emoji1 { left:3vw; bottom:5vh; animation-delay:0.4s;}
         .slide4-emoji2 { right:1vw; bottom:3vh; animation-delay:.5s;}
         .slide4-emoji3 { left:8vw; top:10vh; animation-delay:.1s;}
         .slide4-emoji4 { right:6vw; top:4vh; animation-delay:.9s;}
         .slide4-emoji5 { left:14vw; bottom:88vh; animation-delay:.5s;}
         .slide4-emoji6 { right:11vw; top:85vh; animation-delay:1s;}
-
         .slide5-emoji1 { left:7vw; top:10vh; animation-delay:.2s;}
         .slide5-emoji2 { right:2vw; top:15vh; animation-delay:1.1s;}
         .slide5-emoji3 { left:9vw; bottom:9vh; animation-delay:0.6s;}
         .slide5-emoji4 { right:15vw; bottom:7vh; animation-delay:0.4s;}
         .slide5-emoji5 { left:6vw; top:87vh; animation-delay:.3s;}
         .slide5-emoji6 { right:8vw; bottom:88vh; animation-delay:1.2s;}
-
         .slide6-emoji1 { left:6vw; bottom:8vh; animation-delay:.4s;}
         .slide6-emoji2 { right:9vw; bottom:5vh; animation-delay:.7s;}
         .slide6-emoji3 { left:16vw; top:10vh; animation-delay:.9s;}
         .slide6-emoji4 { right:12vw; top:13vh; animation-delay:.5s;}
         .slide6-emoji5 { left:15vw; top:81vh; animation-delay:.8s;}
         .slide6-emoji6 { right:14vw; top:84vh; animation-delay:0.3s;}
-
         .slide7-emoji1 { left:10vw; top:8vh; animation-delay:.1s;}
         .slide7-emoji2 { right:11vw; top:13vh; animation-delay:0.2s;}
         .slide7-emoji3 { left:13vw; bottom:11vh; animation-delay:0.5s;}
         .slide7-emoji4 { right:13vw; bottom:6vh; animation-delay:1.1s;}
         .slide7-emoji5 { left:19vw; top:84vh; animation-delay:.3s;}
         .slide7-emoji6 { right:10vw; top:88vh; animation-delay:.4s;}
-
         .slide8-emoji1 { left:8vw; bottom:10vh; animation-delay:0.1s;}
         .slide8-emoji2 { right:4vw; bottom:9vh; animation-delay:1.3s;}
         .slide8-emoji3 { left:9vw; top:6vh; animation-delay:.7s;}
         .slide8-emoji4 { right:14vw; top:9vh; animation-delay:.2s;}
         .slide8-emoji5 { left:5vw; top:85vh; animation-delay:.9s;}
         .slide8-emoji6 { right:13vw; bottom:90vh; animation-delay:.8s;}
-
-        @media (max-width: 900px) {
-            #slide-container, .nav-buttons { max-width:98vw;}
-        }
-        @media (max-width: 700px) {
+        @media (max-width:700px){
+            .title-main{font-size:1.45em;}
+            .ring-keywords{width:160px; height:160px;}
+            .key-badge{font-size:.79em;min-width:60px;padding:4px 5px 6px 6px;}
             #slide-container .slide { padding: 10vw 2vw 8vw 2vw; }
-            .activity-grid { gap:9px; }
+            .activity-grid { gap:10px; }
             .emoji-float { width:30px;height:30px;}
-            .activity-grid img, .illu { width:18px;height:18px; }
-            .slide#slide-4 .activity-grid img { width:34px;height:34px; }
+            .activity-grid img, .illu { width:16px;height:16px; }
+            .slide#slide-4 .activity-grid img { width:36px;height:36px; }
         }
     </style>
 </head>
 <body>
-<!-- Floating emoji's buiten het witte kader, thema per slide -->
-<!-- Slide 1: vrolijk/ster/school -->
+<!-- Zwevende emoji's voor ALLE slides -->
 <img class="emoji-float slide1-emoji1" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f393.svg">
 <img class="emoji-float slide1-emoji2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2728.svg">
 <img class="emoji-float slide1-emoji3" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f31f.svg">
 <img class="emoji-float slide1-emoji4" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f603.svg">
 <img class="emoji-float slide1-emoji5" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f44d.svg">
 <img class="emoji-float slide1-emoji6" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f60a.svg">
-<!-- Slide 2: denkballon, twijfelend, vraag -->
 <img class="emoji-float slide2-emoji1" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4ad.svg">
 <img class="emoji-float slide2-emoji2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f611.svg">
 <img class="emoji-float slide2-emoji3" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f914.svg">
 <img class="emoji-float slide2-emoji4" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f632.svg">
 <img class="emoji-float slide2-emoji5" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2753.svg">
 <img class="emoji-float slide2-emoji6" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/23f3.svg">
-<!-- Slide 3: beweging / actief -->
 <img class="emoji-float slide3-emoji1" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4aa.svg">
 <img class="emoji-float slide3-emoji2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c3.svg">
 <img class="emoji-float slide3-emoji3" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9d8.svg">
 <img class="emoji-float slide3-emoji4" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c6.svg">
 <img class="emoji-float slide3-emoji5" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/26f9.svg">
 <img class="emoji-float slide3-emoji6" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f6b6.svg">
-<!-- Slide 4: sport/activiteiten -->
 <img class="emoji-float slide4-emoji1" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3be.svg">
 <img class="emoji-float slide4-emoji2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f57a.svg">
 <img class="emoji-float slide4-emoji3" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c0.svg">
 <img class="emoji-float slide4-emoji4" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c3.svg">
 <img class="emoji-float slide4-emoji5" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3cf.svg">
 <img class="emoji-float slide4-emoji6" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f6f9.svg">
-<!-- Slide 5: voeding -->
 <img class="emoji-float slide5-emoji1" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f34e.svg">
 <img class="emoji-float slide5-emoji2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f353.svg">
 <img class="emoji-float slide5-emoji3" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f966.svg">
 <img class="emoji-float slide5-emoji4" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f36a.svg">
 <img class="emoji-float slide5-emoji5" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f964.svg">
 <img class="emoji-float slide5-emoji6" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f355.svg">
-<!-- Slide 6: motivatie -->
 <img class="emoji-float slide6-emoji1" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f44f.svg">
 <img class="emoji-float slide6-emoji2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f91d.svg">
 <img class="emoji-float slide6-emoji3" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f64c.svg">
 <img class="emoji-float slide6-emoji4" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f525.svg">
 <img class="emoji-float slide6-emoji5" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f929.svg">
 <img class="emoji-float slide6-emoji6" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2728.svg">
-<!-- Slide 7: teamwork/reward -->
 <img class="emoji-float slide7-emoji1" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f468-200d-1f91d-200d-1f468.svg">
 <img class="emoji-float slide7-emoji2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c6.svg">
 <img class="emoji-float slide7-emoji3" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f389.svg">
 <img class="emoji-float slide7-emoji4" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f44d.svg">
 <img class="emoji-float slide7-emoji5" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4aa.svg">
 <img class="emoji-float slide7-emoji6" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2764.svg">
-<!-- Slide 8: feest/eind -->
 <img class="emoji-float slide8-emoji1" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2b50.svg">
 <img class="emoji-float slide8-emoji2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f389.svg">
 <img class="emoji-float slide8-emoji3" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2728.svg">
@@ -291,82 +360,100 @@
 <img class="emoji-float slide8-emoji6" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f64c.svg">
 
 <div id="slide-container">
-    <!-- Slide 1 -->
+    <!-- TITELSLIDE -->
     <div class="slide active" id="slide-1">
-        <h1>En meilleure santé à l'école !</h1>
-        <p>Bougeons et vivons mieux à l'école.</p>
-        <div class="extra">Découvrez comment rendre l'école plus saine, plus active, et plus agréable pour tous.</div>
-        <img class="big-illu" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f60a.svg">
+        <div class="title-ring-container">
+            <div class="title-main">
+                Santé @ école
+            </div>
+            <div class="ring-keywords">
+                <span class="key-badge ring1"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f44d.svg">Bien-être</span>
+                <span class="key-badge ring2"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4aa.svg">Bouger +</span>
+                <span class="key-badge ring3"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f34e.svg">Équilibre alimentaire</span>
+                <span class="key-badge ring4"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2728.svg">Énergie</span>
+                <span class="key-badge ring5"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c6.svg">Défis santé</span>
+                <span class="key-badge ring6"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f91d.svg">Ensemble</span>
+            </div>
+        </div>
     </div>
     <!-- Slide 2 -->
     <div class="slide" id="slide-2">
-        <h2>Quels problèmes à l'école ?</h2>
-        <p>Trop assis, trop fatigué, trop stressé.<br>
-        On bouge trop peu et on mange parfois trop sucré.<br>
-        <span class="extra">Bouger plus aide à mieux se concentrer et à avoir plus d'énergie.</span></p>
-        <img class="big-illu" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9d1-200d-1f4bb.svg">
+        <h2>Problèmes</h2>
+        <div class="keywords">
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f611.svg">Fatigue, manque de motivation</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9d1-200d-1f4bb.svg">Rester trop assis</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f50c.svg">Manque d'énergie, lenteur</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f632.svg">Stress en classe</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f36d.svg">Trop de sucre</span>
+        </div>
     </div>
     <!-- Slide 3 -->
     <div class="slide" id="slide-3">
-        <h2>Bouger, c'est la solution !</h2>
-        <p>Le mouvement, c'est la clé pour rester en forme.<br>
-        Plus d'activités dans la cour, plus d'énergie en classe.<br>
-        <span class="extra">Quelques minutes d'activité chaque pause font déjà une grande différence !</span></p>
-        <img class="big-illu" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c3.svg">
+        <h2>Solutions</h2>
+        <div class="keywords">
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c3.svg">Bouger chaque pause</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/26f9.svg">Énergie toute la journée</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f64c.svg">Trouver la motivation</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4aa.svg">Activités physiques variées</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f601.svg">Du plaisir en groupe</span>
+        </div>
     </div>
     <!-- Slide 4 -->
     <div class="slide" id="slide-4">
-        <h2>Nos activités favorites</h2>
-        <div class="extra" style="font-size:1.09em;">
-            À l’école, tu peux choisir des activités qui te plaisent :<br>
-            bouger seul ou avec tes amis !
-        </div>
+        <h2>Activités</h2>
         <div class="activity-grid">
             <figure>
-                <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@14.0.0/color/svg/1F9D8.svg" alt="Yoga">
-                <figcaption>Yoga – souplesse</figcaption>
-            </figure>
-            <figure>
-                <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@14.0.0/color/svg/1F3BE.svg" alt="Tennis">
-                <figcaption>Tennis – coordination</figcaption>
+                <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@14.0.0/color/svg/1F3CA.svg" alt="Natation">
+                <figcaption>Natation</figcaption>
             </figure>
             <figure>
                 <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@14.0.0/color/svg/1F3C3.svg" alt="Course">
-                <figcaption>Course – énergie</figcaption>
+                <figcaption>Courir</figcaption>
+            </figure>
+            <figure>
+                <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@14.0.0/color/svg/1F57A.svg" alt="Danse">
+                <figcaption>La danse</figcaption>
             </figure>
             <figure>
                 <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@14.0.0/color/svg/1F3C0.svg" alt="Basket">
-                <figcaption>Basket – équipe</figcaption>
+                <figcaption>Basket</figcaption>
             </figure>
         </div>
     </div>
     <!-- Slide 5 -->
     <div class="slide" id="slide-5">
-        <h2>Manger équilibre ? Facile !</h2>
-        <p>Des fruits, des couleurs, et de l'eau chaque jour.<br>
-        Plus de légumes et moins de snacks sucrés.<br>
-        <span class="extra">Bien manger = énergie, bonne humeur, et meilleure santé.</span></p>
-        <img class="big-illu" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f34e.svg">
+        <h2>Alimentation</h2>
+        <div class="keywords">
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f34e.svg">Manger plus de fruits</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f353.svg">Repas coloré équilibré</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4a7.svg">Boire assez d’eau</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f96a.svg">Repas variés, naturels</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f36a.svg">Moins de snacks sucrés</span>
+        </div>
     </div>
     <!-- Slide 6 -->
     <div class="slide" id="slide-6">
-        <h2>Le + important</h2>
-        <p>Bouger et bien manger, chaque jour.<br>
-        Motivez vos amis et proposez vos idées pour une école plus saine !</p>
-        <img class="big-illu" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f44f.svg">
+        <h2>Important</h2>
+        <div class="keywords">
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f504.svg">Changer ses habitudes</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2728.svg">Se motiver et encourager</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4ac.svg">Partager ses idées à la classe</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f91d.svg">Travail en équipe</span>
+        </div>
     </div>
     <!-- Slide 7 -->
     <div class="slide" id="slide-7">
-        <h2>À toi de jouer !</h2>
-        <p>Participe, motive les autres, ose proposer.<br>
-        Ensemble, on améliore la vie à l'école !</p>
-        <img class="big-illu" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c6.svg">
+        <h2>Objectif ?</h2>
+        <div class="keywords">
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f91d.svg">Participer activement</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4aa.svg">Toujours motivé(e)</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c6.svg">Relever les défis santé</span>
+            <span class="key-box"><img class="emoji-inbox" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2764.svg">Créer une ambiance d’équipe</span>
+        </div>
     </div>
     <!-- Slide 8: Merci -->
     <div class="slide" id="slide-8">
-        <h1>Merci !</h1>
-        <div class="extra">Et bonne santé à tous 🍀</div>
-        <img class="big-illu" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f389.svg">
+        <h1>Merci pour votre attention</h1>
     </div>
 </div>
 <div class="nav-buttons">
